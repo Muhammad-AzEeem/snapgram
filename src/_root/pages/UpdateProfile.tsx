@@ -10,7 +10,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "../../components/ui/form";
 import { Button } from "../../components/ui/button";
 import { Loader } from "lucide-react";
 import { Input } from "../../components/ui/input";
@@ -28,7 +28,7 @@ export default function UpdateProfile() {
   const { id } = useParams(); // == step 140
   const navigate = useNavigate();
 
-  const { user, setUser } = useUserContext(); // == step 139
+  const { user } = useUserContext(); // == step 139
   const { data: currentUser } = useGetUserById(id || ""); // == step 141
 
   // == step 147

@@ -2,7 +2,6 @@ import { useGetUsers } from "../../lib/react-query/queryandmutations";
 import { useToast } from "../../components/ui/use-toast";
 import Loader from "../../components/shared/Loader";
 import UserCard from "../../components/shared/UserCard";
-import { Models } from "appwrite";
 
 export default function AllUsers() {
   const { toast } = useToast(); // == step 132
@@ -22,11 +21,23 @@ export default function AllUsers() {
           <Loader />
         ) : (
           <ul className="user-grid">
-            {creators?.documents.map((creator) => (
-              <li key={creator?.$id} className="flex-1 min-w-[200px] w-full  ">
-                <UserCard user={creator} />
-              </li>
-            ))}
+            {Array.isArray(creators)
+              ? creators.map((creator) => (
+                  <li
+                    key={creator?.$id}
+                    className="flex-1 min-w-[200px] w-full"
+                  >
+                    <UserCard user={creator} />
+                  </li>
+                ))
+              : creators?.documents?.map((creator: any) => (
+                  <li
+                    key={creator?.$id}
+                    className="flex-1 min-w-[200px] w-full"
+                  >
+                    <UserCard user={creator} />
+                  </li>
+                ))}
           </ul>
         )}
       </div>

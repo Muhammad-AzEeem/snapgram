@@ -206,9 +206,18 @@ export const useSearchPosts = (searchTerm: string) => {
   });
 };
 
+type DocumentList<T> = {
+  documents: T[];
+};
+
+type UserDocument = {
+  $id: string;
+  // baaki fields
+};
+
 // == step 130
 export const useGetUsers = (limit?: number) => {
-  return useQuery({
+  return useQuery<DocumentList<UserDocument>, Error>({
     queryKey: [QUERY_KEYS.GET_USERS, limit], // ye zaroori hai agar limit dynamic ho
     queryFn: () => getUsers(limit),
   });

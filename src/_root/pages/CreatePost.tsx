@@ -1,4 +1,3 @@
-import React from "react";
 import PostForm from "../../components/forms/PostForm";
 
 // == step 45 create comp

@@ -2,7 +2,6 @@ import { Models } from "appwrite";
 import { useGetCurrentUser } from "../../lib/react-query/queryandmutations";
 import Loader from "../../components/shared/Loader";
 import GridPostList from "../../components/shared/GridPostList";
-import { savePost } from "../../lib/appwrite/api";
 
 // == step 123 from line 4 to line 15
 export default function Saved() {

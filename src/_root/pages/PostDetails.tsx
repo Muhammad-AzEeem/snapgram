@@ -1,9 +1,8 @@
-import React from "react";
 import {
   useDeletePost,
   useGetPostById,
 } from "../../lib/react-query/queryandmutations";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Loader from "../../components/shared/Loader";
 import { multiFormatDateString } from "../../lib/utils";
 import { Button } from "../../components/ui/button";

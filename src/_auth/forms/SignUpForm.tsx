@@ -21,11 +21,11 @@ import {
   useCreateUserAccount,
   useSignInAccount,
 } from "../../lib/react-query/queryandmutations.ts";
-import { useUserContext } from "../../context/authContext.tsx";
+import { useUserContext } from "../../context/AuthContext";
 
 export default function SignUpForm() {
   const { toast } = useToast();
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext(); // == step 26
+  const { checkAuthUser } = useUserContext(); // == step 26
   const navigate = useNavigate(); // == step 28
 
   // == step 17
@@ -33,8 +33,7 @@ export default function SignUpForm() {
     useCreateUserAccount();
 
   // == step 20 part 1
-  const { mutateAsync: signInAccount, isPending: isSigningIn } =
-    useSignInAccount();
+  const { mutateAsync: signInAccount } = useSignInAccount();
 
   const form = useForm<z.infer<typeof SignupValidation>>({
     resolver: zodResolver(SignupValidation), // form validation handle

@@ -5,11 +5,7 @@ import PostCard from "../../components/shared/PostCard";
 
 // == step 62 create comp
 export default function Home() {
-  const {
-    data: posts,
-    isLoading: isPostLoading,
-    isError: isErrorPosts,
-  } = useGetRecentPosts(); //== step 66
+  const { data: posts, isLoading: isPostLoading } = useGetRecentPosts(); //== step 66
   return (
     <div className="flex flex-1">
       <div className="home-container">
