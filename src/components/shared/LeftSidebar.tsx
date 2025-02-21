@@ -11,7 +11,8 @@ export default function LeftSidebar() {
   const { user, setUser, setIsAuthenticated } = useUserContext();
   const { mutateAsync: signOut } = useSignOut();
 
-  function handleSignOut() {
+  function handleSignOut(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
     signOut();
     setIsAuthenticated(false);
     setUser(INITIAL_USER);
@@ -76,7 +77,7 @@ export default function LeftSidebar() {
       <Button
         variant="ghost"
         className="shad-button_ghost"
-        onClick={handleSignOut}
+        onClick={(e) => handleSignOut(e)}
       >
         <img src="/assets/icons/logout.svg" alt="logout" />
         <p className="small-medium lg:base-medium">Logout</p>

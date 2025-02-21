@@ -70,6 +70,10 @@ export default function SignInForm() {
     }
   }
 
+  function handleSubmit(e: any) {
+    e.preventDefault();
+  }
+
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-center flex-col">
@@ -129,6 +133,7 @@ export default function SignInForm() {
             <Link
               to="/sign-up"
               className="text-primary-500 text-small-semibold ml-1"
+              onClick={(e) => handleSubmit(e)}
             >
               Sign up
             </Link>
