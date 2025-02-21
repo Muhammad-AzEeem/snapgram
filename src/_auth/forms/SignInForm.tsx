@@ -38,14 +38,13 @@ export default function SignInForm() {
 
   async function onSubmit(values: z.infer<typeof SigninValidation>) {
     try {
-      // const currentSession = await account
-      //   .getSession("current")
-      //   .catch(() => null);
-      // if (currentSession) {
-      //   console.log("Session is available");
-      //   await account.deleteSession("current");
-      //   await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for session deletion
-      // }
+      const currentSession = await account
+        .getSession("current")
+        .catch(() => null);
+      if (currentSession) {
+        console.log("Session is available");
+        await account.deleteSession("current");
+      }
 
       const session = await signInAccount({
         email: values.email,

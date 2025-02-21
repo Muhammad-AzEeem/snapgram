@@ -59,16 +59,13 @@ export default function AuthProvider({
     }
   }
 
-  useEffect(
-    function () {
-      const cookieFallback = localStorage.getItem("cookieFallback");
-      if (cookieFallback === "[]" || cookieFallback === null) {
-        navigate("/sign-up");
-      }
-      checkAuthUser();
-    },
-    [navigate]
-  );
+  useEffect(function () {
+    const cookieFallback = localStorage.getItem("cookieFallback");
+    if (cookieFallback === "[]" || cookieFallback === null) {
+      navigate("/sign-in");
+    }
+    checkAuthUser();
+  }, []);
 
   const value = {
     user,
