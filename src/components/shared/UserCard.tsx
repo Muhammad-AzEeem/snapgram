@@ -6,7 +6,6 @@ type UserCardProps = {
   user: Models.Document;
 };
 
-// == step 134 create comp
 export default function UserCard({ user }: UserCardProps) {
   return (
     <Link to={`/profile/${user.$id}`} className="user-card">
@@ -31,5 +30,3 @@ export default function UserCard({ user }: UserCardProps) {
     </Link>
   );
 }
-
-// == step 135 in api.ts

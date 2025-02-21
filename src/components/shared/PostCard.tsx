@@ -8,7 +8,6 @@ type PostCardProps = {
   post: Models.Document;
 };
 
-//== step 67 create comp
 export default function PostCard({ post }: PostCardProps) {
   const { user } = useUserContext();
 
@@ -81,6 +80,3 @@ export default function PostCard({ post }: PostCardProps) {
     </div>
   );
 }
-
-// == step 68 multiFormatDateString file.
-// == step 70 create PostStats.tsx

@@ -7,7 +7,6 @@ type ProfileUploaderProps = {
   mediaUrl: string;
 };
 
-// == step 147 create comp
 export default function ProfileUploader({
   fieldChange,
   mediaUrl,
@@ -47,5 +46,3 @@ export default function ProfileUploader({
     </div>
   );
 }
-
-// == step 147 is a last step

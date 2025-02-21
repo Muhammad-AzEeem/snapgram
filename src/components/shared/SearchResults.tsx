@@ -6,7 +6,6 @@ export type SearchResultProps = {
   searchedPosts?: any;
 };
 
-// == step 109 create comp
 export default function SearchResults({
   isSearchFetching,
   searchedPosts,
@@ -20,5 +19,3 @@ export default function SearchResults({
     <p className="text-light-4 mt-10 text-center w-full">No results found</p>
   );
 }
-
-// == step 110 in api.ts

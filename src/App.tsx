@@ -1,5 +1,3 @@
-// == step 2 create this
-// == step 3 SignInForm, SignupForm, and Home element created starter code of this file
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "./components/ui/toaster";
 
@@ -44,15 +42,9 @@ function App() {
           <Route path="/update-profile/:id" element={<UpdateProfile />} />
         </Route>
       </Routes>
-      {/*  == step 13 */}
       <Toaster />
     </main>
   );
 }
 
 export default App;
-
-// == step 4 in tsconfig.node.json
-// == step 14 in signup form
-// == step 43 created pages from element Explore to element UpdateProfile
-// == step 44 in bottombar

@@ -5,10 +5,9 @@ import { INavLink } from "../../types";
 import { Button } from "../ui/button";
 import { useSignOut } from "../../lib/react-query/queryandmutations";
 
-// == step 37 create comp
 export default function LeftSidebar() {
   const navigate = useNavigate();
-  const { pathname } = useLocation(); // == step 40
+  const { pathname } = useLocation();
   const { user, setUser, setIsAuthenticated } = useUserContext();
   const { mutateAsync: signOut } = useSignOut();
 
@@ -85,6 +84,3 @@ export default function LeftSidebar() {
     </nav>
   );
 }
-
-// == step 38 create constants folder and create index.ts file in it.
-// == step 42 in app

@@ -3,9 +3,8 @@ import Loader from "../../components/shared/Loader";
 import { useGetCurrentUser } from "../../lib/react-query/queryandmutations";
 
 export default function LikedPosts() {
-  const { data: currentUser } = useGetCurrentUser(); // == step 127
+  const { data: currentUser } = useGetCurrentUser();
 
-  // == step 128
   if (!currentUser)
     return (
       <div className="flex-center w-full h-full">
@@ -13,7 +12,6 @@ export default function LikedPosts() {
       </div>
     );
 
-  // == step 128 from line 18 to 24
   return (
     <>
       {currentUser.liked.length === 0 && (
@@ -24,5 +22,3 @@ export default function LikedPosts() {
     </>
   );
 }
-
-// == step 129 api.ts

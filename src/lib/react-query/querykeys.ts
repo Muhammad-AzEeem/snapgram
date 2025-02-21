@@ -1,4 +1,3 @@
-// == step 56
 export enum QUERY_KEYS {
   // AUTH KEYS
   CREATE_USER_ACCOUNT = "createUserAccount",
@@ -19,5 +18,3 @@ export enum QUERY_KEYS {
   //  SEARCH KEYS
   SEARCH_POSTS = "getSearchPosts",
 }
-
-// == step 57 in PostForm

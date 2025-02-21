@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// == step 115 create this fie
 // https://codesandbox.io/s/react-query-debounce-ted8o?file=/src/useDebounce.js
 export default function useDebounce<T>(value: T, delay: number): T {
   // State and setters for debounced value
@@ -22,5 +21,3 @@ export default function useDebounce<T>(value: T, delay: number): T {
 
   return debouncedValue;
 }
-
-// == step 116 in Explore

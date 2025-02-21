@@ -28,14 +28,12 @@ import {
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "../../types";
 import { QUERY_KEYS } from "./querykeys";
 
-// // == step 16
 export function useCreateUserAccount() {
   return useMutation({
     mutationFn: (user: INewUser) => createUserAccount(user),
   });
 }
 
-// == step 18
 export function useSignInAccount() {
   return useMutation({
     mutationFn: (user: { email: string; password: string }) =>
@@ -43,14 +41,12 @@ export function useSignInAccount() {
   });
 }
 
-// == step 32
 export function useSignOut() {
   return useMutation({
     mutationFn: signOutAccount,
   });
 }
 
-// == step 55
 export const useCreatePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -63,7 +59,6 @@ export const useCreatePost = () => {
   });
 };
 
-// == step 63
 export const useGetRecentPosts = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
@@ -72,7 +67,6 @@ export const useGetRecentPosts = () => {
   });
 };
 
-// == step 75
 export const useLikePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -100,7 +94,6 @@ export const useLikePost = () => {
   });
 };
 
-// == step 76
 export const useSavePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -120,7 +113,6 @@ export const useSavePost = () => {
   });
 };
 
-// == step 76
 export const useDeleteSavePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -139,7 +131,6 @@ export const useDeleteSavePost = () => {
   });
 };
 
-// == step 86
 export const useGetCurrentUser = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_CURRENT_USER],
@@ -147,7 +138,6 @@ export const useGetCurrentUser = () => {
   });
 };
 
-// == step 91
 export const useGetPostById = (postId?: string) => {
   return useQuery({
     queryFn: () => getPostById(postId),
@@ -156,7 +146,6 @@ export const useGetPostById = (postId?: string) => {
   });
 };
 
-// == step 95
 export const useUpdatePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -169,7 +158,6 @@ export const useUpdatePost = () => {
   });
 };
 
-// == step 96
 export const useDeletePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -183,7 +171,6 @@ export const useDeletePost = () => {
   });
 };
 
-// == step 112
 export const useGetPosts = () => {
   return useInfiniteQuery({
     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
@@ -197,7 +184,6 @@ export const useGetPosts = () => {
   });
 };
 
-// == step 113
 export const useSearchPosts = (searchTerm: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.SEARCH_POSTS, searchTerm],
@@ -215,15 +201,13 @@ type UserDocument = {
   // baaki fields
 };
 
-// == step 130
 export const useGetUsers = (limit?: number) => {
   return useQuery<DocumentList<UserDocument>, Error>({
-    queryKey: [QUERY_KEYS.GET_USERS, limit], // ye zaroori hai agar limit dynamic ho
+    queryKey: [QUERY_KEYS.GET_USERS, limit],
     queryFn: () => getUsers(limit),
   });
 };
 
-// == step 136
 export const useGetUserById = (userId: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_USER_BY_ID, userId],
@@ -232,7 +216,6 @@ export const useGetUserById = (userId: string) => {
   });
 };
 
-// == step 146
 export const useUpdateUser = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -247,18 +230,3 @@ export const useUpdateUser = () => {
     },
   });
 };
-
-// == step 17 in signupform
-// == step 19 in api.ts
-// == step 33 in api.ts
-// == step 56 in querykeys.ts
-// == step 64 in api.ts
-// == step 66 in home
-// == step 77 in PostStats.tsx
-// == step 87 in Postats.tsx
-// == step 91 in Editpost.tsx
-// == step 97 in PostForm.tsx
-// == step 114 in Explore.tsx
-// == step 131 in Alluers.tsx
-// == step 137 in Profile.tsx
-// == step 147 in UpdateProfile

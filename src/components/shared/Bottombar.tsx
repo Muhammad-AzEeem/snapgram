@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { bottombarLinks } from "../../constants";
 
-// == step 44 create comp
 export default function Bottombar() {
   const { pathname } = useLocation();
   return (
@@ -30,5 +29,3 @@ export default function Bottombar() {
     </section>
   );
 }
-
-// == step 45 in createPost.tsx

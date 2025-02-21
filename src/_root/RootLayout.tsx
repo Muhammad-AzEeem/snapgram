@@ -3,7 +3,6 @@ import LeftSidebar from "../components/shared/LeftSidebar";
 import Topbar from "../components/shared/Topbar";
 import Bottombar from "../components/shared/Bottombar";
 
-// == step 30 to create comp
 export default function RootLayout() {
   return (
     <div className="w-full md:flex">
@@ -19,5 +18,3 @@ export default function RootLayout() {
     </div>
   );
 }
-
-// == step 31 to create topbar.tsx

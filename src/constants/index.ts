@@ -1,4 +1,3 @@
-// == step 38 create comp
 export const sidebarLinks = [
   {
     imgURL: "/assets/icons/home.svg",

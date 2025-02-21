@@ -30,23 +30,18 @@ type PostFormProps = {
   action: "Create" | "Update";
 };
 
-// == step 47 create comp
 export default function PostForm({ post, action }: PostFormProps) {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // == step 57
   const { mutateAsync: createPost, isPending: isLoadingCreate } =
     useCreatePost();
 
-  // == step 97
   const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
     useUpdatePost();
 
-  // == step 59
   const { user } = useUserContext();
 
-  // == step 50 to use PostValidation
   const form = useForm<z.infer<typeof PostValidation>>({
     resolver: zodResolver(PostValidation),
     defaultValues: {
@@ -58,7 +53,6 @@ export default function PostForm({ post, action }: PostFormProps) {
   });
 
   async function onSubmit(values: z.infer<typeof PostValidation>) {
-    // == step 98
     if (post && action === "Update") {
       const updatedPost = await updatePost({
         ...values,
@@ -75,14 +69,12 @@ export default function PostForm({ post, action }: PostFormProps) {
       return navigate(`/posts/${post.$id}`);
     }
 
-    // == step 58
     const newPost = await createPost({
       ...values,
       // == step 60
       userId: user.id,
     });
 
-    // == step 61
     if (!newPost) {
       toast({
         title: `Please try again.`,
@@ -121,7 +113,6 @@ export default function PostForm({ post, action }: PostFormProps) {
             <FormItem>
               <FormLabel className="shad-form_label">Add Photos</FormLabel>
               <FormControl>
-                {/* // == step 48 create FileUploader   */}
                 <FileUploader
                   fieldChange={field.onChange}
                   // == mediaurl here using for upade the exisiting post
@@ -189,8 +180,3 @@ export default function PostForm({ post, action }: PostFormProps) {
     </Form>
   );
 }
-
-// == step 48 in FileUploader
-// == step 51 in api.ts
-// == step 62 in Home
-// == step 98 in PostDetails

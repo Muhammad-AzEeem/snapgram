@@ -2,7 +2,6 @@ import { ID, Query } from "appwrite";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "../../types";
 import { account, appwriteConfig, avatars, databases, storage } from "./config";
 
-// == step 10
 export async function createUserAccount(user: INewUser) {
   try {
     const newAccount = await account.create(
@@ -34,7 +33,6 @@ export async function createUserAccount(user: INewUser) {
   }
 }
 
-// == step 12
 export async function saveUserToDB(user: {
   accountId: string;
   email: string;
@@ -58,7 +56,6 @@ export async function saveUserToDB(user: {
   }
 }
 
-// == step 19
 export async function signInAccount(user: { email: string; password: string }) {
   try {
     // First, try to delete any existing session
@@ -81,7 +78,6 @@ export async function signInAccount(user: { email: string; password: string }) {
   }
 }
 
-// == step 22
 export async function getCurrentUser() {
   try {
     const currentAccount = await account.get();
@@ -101,7 +97,6 @@ export async function getCurrentUser() {
   }
 }
 
-// == step 33
 export async function signOutAccount() {
   try {
     const session = await account.deleteSession("current");
@@ -118,7 +113,6 @@ export async function signOutAccount() {
 
 // ============================== CREATE POST
 
-// == step 51
 export async function createPost(post: INewPost) {
   try {
     // Upload file to appwrite storage
@@ -159,7 +153,6 @@ export async function createPost(post: INewPost) {
   }
 }
 
-// == step 52
 export async function uploadFile(file: File) {
   try {
     const uploadedFile = await storage.createFile(
@@ -173,7 +166,6 @@ export async function uploadFile(file: File) {
   }
 }
 
-// == step 53
 export function getFilePreview(fileId: string) {
   try {
     const fileUrl = storage.getFilePreview(
@@ -193,7 +185,6 @@ export function getFilePreview(fileId: string) {
   }
 }
 
-// == step 54
 export async function deleteFile(fileId: string) {
   try {
     await storage.deleteFile(appwriteConfig.storageId, fileId);
@@ -203,7 +194,6 @@ export async function deleteFile(fileId: string) {
   }
 }
 
-// == step 64
 export async function getRecentPosts() {
   try {
     const posts = await databases.listDocuments(
@@ -219,7 +209,6 @@ export async function getRecentPosts() {
   }
 }
 
-// == step 71
 // ============================== LIKE / UNLIKE POST
 export async function likePost(postId: string, likesArray: string[]) {
   try {
@@ -239,7 +228,6 @@ export async function likePost(postId: string, likesArray: string[]) {
   }
 }
 
-// == step 72
 export async function savePost(postId: string, userId: string) {
   try {
     const updatedPost = await databases.createDocument(
@@ -259,7 +247,6 @@ export async function savePost(postId: string, userId: string) {
   }
 }
 
-// == step 73
 export async function deleteSavedPost(savedRecordId: string) {
   try {
     const statusCode = await databases.deleteDocument(
@@ -275,7 +262,6 @@ export async function deleteSavedPost(savedRecordId: string) {
   }
 }
 
-// == step 90
 // ============================== GET POST BY ID
 export async function getPostById(postId?: string) {
   if (!postId) throw Error;
@@ -293,7 +279,6 @@ export async function getPostById(postId?: string) {
   }
 }
 
-// == step 93
 export async function updatePost(post: IUpdatePost) {
   const hasFileToUpdate = post.file.length > 0;
 
@@ -365,7 +350,6 @@ export async function updatePost(post: IUpdatePost) {
   }
 }
 
-// == step 94
 export async function deletePost(postId?: string, imageId?: string) {
   if (!postId || !imageId) return;
   try {
@@ -382,7 +366,6 @@ export async function deletePost(postId?: string, imageId?: string) {
   }
 }
 
-// == step 110
 export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
   const queries: any[] = [Query.orderDesc("$updatedAt"), Query.limit(10)];
 
@@ -403,7 +386,6 @@ export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
   }
 }
 
-// == step 111
 export async function searchPosts(searchTerm: string) {
   try {
     const posts = await databases.listDocuments(
@@ -418,7 +400,6 @@ export async function searchPosts(searchTerm: string) {
   }
 }
 
-// == step 129
 // ============================================================
 // USER
 // ============================================================
@@ -442,7 +423,6 @@ export async function getUsers(limit?: number) {
   }
 }
 
-// == step 135
 // ============================== GET USER BY ID
 export async function getUserById(userId: string) {
   try {
@@ -458,7 +438,6 @@ export async function getUserById(userId: string) {
   }
 }
 
-// == step 145
 // ============================== UPDATE USER
 export async function updateUser(user: IUpdateUser) {
   const hasFileToUpdate = user.file.length > 0;
@@ -516,18 +495,3 @@ export async function updateUser(user: IUpdateUser) {
     console.log(error);
   }
 }
-
-// == step 11 in SignUpForm
-// == step 13 in App.tsx
-// == step 20 in SignUpForm
-// == step 23 in AuthContext
-// == step 34 in topbar
-// == step 55 in querymutation
-// == step 65 in querymutation
-// == step 74 in Query&Mutations
-// == step 91 in Query&Mutations
-// == step 95 in Query&Mutations
-// == step 112 in Query&Mutations
-// == step 130 in Query&Mutations
-// == step 136 in Query&Mutations
-// == step 146 in Query&Mutations

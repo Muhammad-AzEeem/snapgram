@@ -7,7 +7,6 @@ type FileUploaderProps = {
   mediaUrl: string;
 };
 
-// == step 48 create comp
 export default function FileUploader({
   fieldChange,
   mediaUrl,
@@ -66,5 +65,3 @@ export default function FileUploader({
     </div>
   );
 }
-
-// == step 49 in validation scheme index.ts

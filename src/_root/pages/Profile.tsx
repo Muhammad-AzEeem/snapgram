@@ -29,9 +29,8 @@ export default function Profile() {
   const { user } = useUserContext();
   const { pathname } = useLocation();
 
-  const { data: currentUser } = useGetUserById(id || ""); // == step 137
+  const { data: currentUser } = useGetUserById(id || "");
 
-  // == step 138 from line 36 to 138
   return (
     <div className="profile-container">
       <div className="profile-inner_container">
@@ -138,5 +137,3 @@ export default function Profile() {
     </div>
   );
 }
-
-// == step 139 UpdateProfile

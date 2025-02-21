@@ -3,9 +3,8 @@ import Loader from "../../components/shared/Loader";
 import { useGetRecentPosts } from "../../lib/react-query/queryandmutations";
 import PostCard from "../../components/shared/PostCard";
 
-// == step 62 create comp
 export default function Home() {
-  const { data: posts, isLoading: isPostLoading } = useGetRecentPosts(); //== step 66
+  const { data: posts, isLoading: isPostLoading } = useGetRecentPosts();
   return (
     <div className="flex flex-1">
       <div className="home-container">
@@ -27,6 +26,3 @@ export default function Home() {
     </div>
   );
 }
-
-// == step 63 in query&mutation
-//== step 67 create PostCard.tsx

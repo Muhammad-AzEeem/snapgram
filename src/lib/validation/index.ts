@@ -1,5 +1,3 @@
-// == step 7 to create file and to create SignupValidation, SigninValidation & ProfileValidation
-
 import * as z from "zod";
 
 // ============================================================
@@ -33,7 +31,6 @@ export const ProfileValidation = z.object({
   bio: z.string(),
 });
 
-// == step 49
 // ============================================================
 // POST
 // ============================================================
@@ -49,7 +46,3 @@ export const PostValidation = z.object({
     .max(1000, { message: "Maximum 1000 characters." }),
   tags: z.string(),
 });
-
-// == step 8 to create shared folder in components folder and create a  Loader file
-
-// == step 50 in PostForm

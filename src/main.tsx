@@ -5,7 +5,6 @@ import App from "./App.tsx";
 import AuthProvider from "./context/AuthContext";
 import { QueryProvider } from "./lib/react-query/QueryProvider.tsx";
 
-// == step 1 to wrap App in BrowserRouter
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
@@ -17,5 +16,3 @@ createRoot(document.getElementById("root")!).render(
     </BrowserRouter>
   </StrictMode>
 );
-
-// == step 2 App file

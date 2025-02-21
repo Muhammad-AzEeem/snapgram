@@ -3,11 +3,9 @@ import { useGetCurrentUser } from "../../lib/react-query/queryandmutations";
 import Loader from "../../components/shared/Loader";
 import GridPostList from "../../components/shared/GridPostList";
 
-// == step 123 from line 4 to line 15
 export default function Saved() {
-  const { data: currentUser } = useGetCurrentUser(); // == step 124
+  const { data: currentUser } = useGetCurrentUser();
 
-  // == step 125
   const savePosts = currentUser?.save
     .filter((savePost: Models.Document) => savePost.post !== null)
     .map((savePost: Models.Document) => ({
@@ -41,5 +39,3 @@ export default function Saved() {
     </div>
   );
 }
-
-// == step 127 in LikedPost

@@ -1,4 +1,3 @@
-// == step 5 create comp
 import { Outlet, Navigate } from "react-router-dom";
 
 export default function AuthLayout() {
@@ -23,5 +22,3 @@ export default function AuthLayout() {
     </>
   );
 }
-
-// == step 6 in SingupForm

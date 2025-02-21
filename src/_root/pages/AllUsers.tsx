@@ -4,10 +4,9 @@ import Loader from "../../components/shared/Loader";
 import UserCard from "../../components/shared/UserCard";
 
 export default function AllUsers() {
-  const { toast } = useToast(); // == step 132
-  const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers(); // == step 131
+  const { toast } = useToast();
+  const { data: creators, isLoading, isError: isErrorCreators } = useGetUsers();
 
-  // == step 133
   if (isErrorCreators) {
     toast({ title: "Something went wrong." });
     return;
@@ -44,5 +43,3 @@ export default function AllUsers() {
     </div>
   );
 }
-
-// == step 134  userCard

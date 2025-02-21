@@ -25,17 +25,15 @@ import ProfileUploader from "../../components/shared/ProfileUploader";
 
 export default function UpdateProfile() {
   const { toast } = useToast();
-  const { id } = useParams(); // == step 140
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const { user } = useUserContext(); // == step 139
-  const { data: currentUser } = useGetUserById(id || ""); // == step 141
+  const { user } = useUserContext();
+  const { data: currentUser } = useGetUserById(id || "");
 
-  // == step 147
   const { mutateAsync: updateUser, isPending: isLoadingUpdate } =
     useUpdateUser();
 
-  // == step 142
   const form = useForm<z.infer<typeof ProfileValidation>>({
     resolver: zodResolver(ProfileValidation),
     defaultValues: {
@@ -54,7 +52,6 @@ export default function UpdateProfile() {
       </div>
     );
 
-  // == step 144
   async function handleUpdate(value: z.infer<typeof ProfileValidation>) {
     const updatedUser = await updateUser({
       userId: currentUser?.$id,
@@ -200,6 +197,3 @@ export default function UpdateProfile() {
     </div>
   );
 }
-
-// == step 145 in api.ts
-// == step 147 create ProfileUploader

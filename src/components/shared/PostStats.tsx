@@ -14,27 +14,20 @@ type PostStatsProps = {
   userId: string;
 };
 
-// == step 70 create comp
 export default function PostStats({ post, userId }: PostStatsProps) {
-  const likesList = post.likes.map((user: Models.Document) => user.$id); // == step 81
-  const [likes, setLikes] = useState(likesList); // == step 82
-  const [isSaved, setIsSaved] = useState(false); // == step 83g
+  const likesList = post.likes.map((user: Models.Document) => user.$id);
+  const [likes, setLikes] = useState(likesList);
+  const [isSaved, setIsSaved] = useState(false);
 
-  // == step 77
   const { mutate: likePost } = useLikePost();
-  // == step 78
   const { mutate: savePost, isPending: isSavingPost } = useSavePost();
-  // == step 79
   const { mutate: deletePost, isPending: isDeletingSaved } =
     useDeleteSavePost();
-  // == step 80
   const { data: currentUser } = useGetCurrentUser();
 
-  // == step 87
   const savedPostRecord = currentUser?.save.find(
     (record: Models.Document) => record?.post?.$id === post?.$id
   );
-  // == step 88
   useEffect(
     function () {
       setIsSaved(savedPostRecord ? true : false);
@@ -42,7 +35,6 @@ export default function PostStats({ post, userId }: PostStatsProps) {
     [savedPostRecord]
   );
 
-  // == step 84
   function handleLikePost(e: React.MouseEvent) {
     e.stopPropagation();
     let newLikes = [...likes];
@@ -56,7 +48,6 @@ export default function PostStats({ post, userId }: PostStatsProps) {
     likePost({ postId: post?.$id, likesArray: newLikes });
   }
 
-  // == step 85
   function handleSavePost(e: React.MouseEvent) {
     e.stopPropagation();
 
@@ -104,7 +95,3 @@ export default function PostStats({ post, userId }: PostStatsProps) {
     </div>
   );
 }
-
-// == step 71 in api.ts
-// == step 86 in querymutations
-// == step 89 in Edit.tsx

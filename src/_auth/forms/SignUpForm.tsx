@@ -25,14 +25,12 @@ import { useUserContext } from "../../context/AuthContext";
 
 export default function SignUpForm() {
   const { toast } = useToast();
-  const { checkAuthUser } = useUserContext(); // == step 26
-  const navigate = useNavigate(); // == step 28
+  const { checkAuthUser } = useUserContext();
+  const navigate = useNavigate();
 
-  // == step 17
   const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccount();
 
-  // == step 20 part 1
   const { mutateAsync: signInAccount } = useSignInAccount();
 
   const form = useForm<z.infer<typeof SignupValidation>>({
@@ -47,15 +45,13 @@ export default function SignUpForm() {
 
   async function onSubmit(values: z.infer<typeof SignupValidation>) {
     //  Create the user
-    const newUser = await createUserAccount(values); // == step 11
+    const newUser = await createUserAccount(values);
     // console.log(newUser);
-    // == step 14
     if (!newUser)
       return toast({
         title: "Sign Up Failed. Pleae try again.",
       });
 
-    // == step 20 part 2
     const session = await signInAccount({
       email: values.email,
       password: values.password,
@@ -67,7 +63,6 @@ export default function SignUpForm() {
       return;
     }
 
-    // == step 27
     const isLoggedIn = await checkAuthUser();
     if (isLoggedIn) {
       form.reset();
@@ -176,10 +171,3 @@ export default function SignUpForm() {
     </Form>
   );
 }
-
-// == step 7 in index.ts in validation folder
-// == step 12 in api.ts
-// == step 15 create a react-query folder in lib folder and creae a qury&mutaution file in it
-// == step 18 querymutation
-// == step 21 create context folder & create authContext file
-// == step 28 create QueryProvider.ts

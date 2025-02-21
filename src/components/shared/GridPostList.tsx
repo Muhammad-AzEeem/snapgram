@@ -9,13 +9,12 @@ type GridPostListProps = {
   showStats?: boolean;
 };
 
-// == step 118 create comp
 export default function GridPostList({
   posts,
   showUser = true,
   showStats = true,
 }: GridPostListProps) {
-  const { user } = useUserContext(); // == step 119
+  const { user } = useUserContext();
   return (
     <ul className="grid-container">
       {posts?.map((post) => (
@@ -49,5 +48,3 @@ export default function GridPostList({
     </ul>
   );
 }
-
-// == step 120 in Explore

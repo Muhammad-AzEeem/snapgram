@@ -10,25 +10,23 @@ import useDebounce from "../../hooks/useDebounce";
 import Loader from "../../components/shared/Loader";
 import { useInView } from "react-intersection-observer";
 
-// == step 105 from line 6 to 40
 export default function Explore() {
-  const { data: posts, fetchNextPage, hasNextPage } = useGetPosts(); // == step 117
+  const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
 
   const [searchValue, setSearchValue] = useState("");
-  const debounce = useDebounce(searchValue, 500); // == step 116
+  const debounce = useDebounce(searchValue, 500);
 
-  const { ref, inView } = useInView(); // == step 121
+  const { ref, inView } = useInView();
 
   const { data: searchedPosts, isFetching: isSearchFetching } =
-    useSearchPosts(debounce); // == step 114
+    useSearchPosts(debounce);
 
-  const shouldShowSearchResults = searchValue !== ""; //  == step 107
+  const shouldShowSearchResults = searchValue !== "";
 
   const shouldShowPosts =
     !shouldShowSearchResults &&
-    posts?.pages?.every((item) => item?.documents.length === 0); // == step 108
+    posts?.pages?.every((item) => item?.documents.length === 0);
 
-  // == step 122
   useEffect(
     function () {
       if (inView && !searchValue) fetchNextPage();
@@ -100,8 +98,3 @@ export default function Explore() {
     </div>
   );
 }
-
-// == step 109 create SearchResults.tsx in shared folder
-// == step 115 create hooks folder and create useDebounce.tsx
-// == step 118 in GridPostList.tsx
-// == step 123 in savePosts

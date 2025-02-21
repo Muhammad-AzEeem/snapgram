@@ -9,15 +9,13 @@ import { Button } from "../../components/ui/button";
 import { useUserContext } from "../../context/AuthContext";
 import PostStats from "../../components/shared/PostStats";
 
-// == step 98 from line 18 to
 export default function PostDetails() {
-  const { id } = useParams(); // == step 99
-  const { data: post, isPending } = useGetPostById(id || ""); // == step 100
-  const { user } = useUserContext(); // == step 101
+  const { id } = useParams();
+  const { data: post, isPending } = useGetPostById(id || "");
+  const { user } = useUserContext();
 
-  const { mutateAsync: deletePost } = useDeletePost(); // == step 103
+  const { mutateAsync: deletePost } = useDeletePost();
 
-  // == step 104
   function handleDeletePost() {
     deletePost({ postId: id, imageId: post?.imageId });
   }
@@ -116,5 +114,3 @@ export default function PostDetails() {
     </div>
   );
 }
-
-// == step 105 in Explore

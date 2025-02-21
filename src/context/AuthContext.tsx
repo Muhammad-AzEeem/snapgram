@@ -1,5 +1,3 @@
-// == step 21 create this all code
-
 import { createContext, useContext, useEffect, useState } from "react";
 import { IContextType, IUser } from "../types";
 import { getCurrentUser } from "../lib/appwrite/api";
@@ -35,7 +33,6 @@ export default function AuthProvider({
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // == step 23
   async function checkAuthUser() {
     setIsLoading(true);
     try {
@@ -62,7 +59,6 @@ export default function AuthProvider({
     }
   }
 
-  // == step 24
   useEffect(
     function () {
       const cookieFallback = localStorage.getItem("cookieFallback");
@@ -74,7 +70,6 @@ export default function AuthProvider({
     [navigate]
   );
 
-  // == step 25
   const value = {
     user,
     setUser,
@@ -88,6 +83,3 @@ export default function AuthProvider({
 }
 
 export const useUserContext = () => useContext(AuthContext);
-
-// == step 22 in api.ts
-// == step 26 in SignUpForm

@@ -1,5 +1,3 @@
-// == step 9 to create this file
-
 import { Client, Account, Databases, Storage, Avatars } from "appwrite";
 
 export const appwriteConfig = {
@@ -20,5 +18,3 @@ export const account = new Account(client);
 export const databases = new Databases(client);
 export const storage = new Storage(client);
 export const avatars = new Avatars(client);
-
-// == step 10 create api.ts in appwrite folder

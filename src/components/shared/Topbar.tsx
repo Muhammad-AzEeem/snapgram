@@ -4,13 +4,11 @@ import { useSignOut } from "../../lib/react-query/queryandmutations";
 import { useEffect } from "react";
 import { useUserContext } from "../../context/AuthContext";
 
-// == step 31 create comp
 export default function Topbar() {
   const navigate = useNavigate();
-  const { mutateAsync: signOut, isSuccess } = useSignOut(); // == step 34
-  const { user } = useUserContext(); // == step 36
+  const { mutateAsync: signOut, isSuccess } = useSignOut();
+  const { user } = useUserContext();
 
-  // == step 35
   useEffect(
     function () {
       if (isSuccess) navigate(0);
@@ -37,7 +35,6 @@ export default function Topbar() {
           >
             <img src="/assets/icons/logout.svg" alt="logout" />
           </Button>
-          {/* == step 37 */}
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
               src={user.imageUrl || "/assets/icons/profile-placeholder.svg"}
@@ -50,6 +47,3 @@ export default function Topbar() {
     </section>
   );
 }
-
-// == step 32 in querymutation
-// == step 37 im Leftsidebar

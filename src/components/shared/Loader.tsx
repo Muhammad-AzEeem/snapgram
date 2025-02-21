@@ -1,5 +1,3 @@
-// == step 8 to create comp
-
 const Loader = () => (
   <div className="flex-center w-full">
     <img
@@ -13,5 +11,3 @@ const Loader = () => (
 );
 
 export default Loader;
-
-// == step 9 to create appwrite folder in lib folder and create config.ts
