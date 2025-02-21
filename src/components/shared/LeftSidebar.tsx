@@ -43,7 +43,6 @@ export default function LeftSidebar() {
           </div>
         </Link>
 
-        {/* == step 39 */}
         <ul className="flex flex-col gap-6 ">
           {sidebarLinks.map((link: INavLink) => {
             const isActive = pathname === link.route;
@@ -73,7 +72,6 @@ export default function LeftSidebar() {
         </ul>
       </div>
 
-      {/* step 41  */}
       <Button
         variant="ghost"
         className="shad-button_ghost"
