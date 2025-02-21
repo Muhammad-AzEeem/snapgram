@@ -43,7 +43,9 @@ export default function SignUpForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof SignupValidation>) {
+  async function onSubmit(e: any, values: z.infer<typeof SignupValidation>) {
+    e.preventDefault();
+
     //  Create the user
     const newUser = await createUserAccount(values);
     // console.log(newUser);
@@ -88,7 +90,7 @@ export default function SignUpForm() {
         </p>
 
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit((e) => onSubmit(e))}
           className="flex flex-col gap-5 w-full mt-4"
         >
           <FormField

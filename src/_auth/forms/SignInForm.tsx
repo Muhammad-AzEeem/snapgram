@@ -36,7 +36,8 @@ export default function SignInForm() {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof SigninValidation>) {
+  async function onSubmit(e: any, values: z.infer<typeof SigninValidation>) {
+    e.preventDefault();
     try {
       const currentSession = await account
         .getSession("current")
@@ -83,7 +84,7 @@ export default function SignInForm() {
         </p>
 
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit((e) => onSubmit(e))}
           className="flex flex-col gap-5 w-full mt-4"
         >
           <FormField
