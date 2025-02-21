@@ -36,16 +36,16 @@ export default function SignInForm() {
     },
   });
 
-  async function onSubmit(e: any, values: z.infer<typeof SigninValidation>) {
-    e.preventDefault();
+  async function onSubmit(values: z.infer<typeof SigninValidation>) {
     try {
-      const currentSession = await account
-        .getSession("current")
-        .catch(() => null);
-      if (currentSession) {
-        console.log("Session is available");
-        await account.deleteSession("current");
-      }
+      // const currentSession = await account
+      //   .getSession("current")
+      //   .catch(() => null);
+      // if (currentSession) {
+      //   console.log("Session is available");
+      //   await account.deleteSession("current");
+      //   await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for session deletion
+      // }
 
       const session = await signInAccount({
         email: values.email,
@@ -84,7 +84,7 @@ export default function SignInForm() {
         </p>
 
         <form
-          onSubmit={form.handleSubmit((e) => onSubmit(e))}
+          onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-col gap-5 w-full mt-4"
         >
           <FormField
