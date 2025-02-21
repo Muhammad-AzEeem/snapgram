@@ -63,7 +63,7 @@ export default function AuthProvider({
     function () {
       const cookieFallback = localStorage.getItem("cookieFallback");
       if (cookieFallback === "[]" || cookieFallback === null) {
-        navigate("/sign-in");
+        navigate("/sign-up");
       }
       checkAuthUser();
     },
